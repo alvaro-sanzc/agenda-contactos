@@ -1,5 +1,13 @@
 <%- include("header", {}) %>
     <div class="container">
         <h1>Aquí están los contactos disponibles</h1>
+        <% ejs_contacts.forEach(function(contacto) { %>
+            <h2> <%= contacto.nombre %></h2>
+            <li>Edad: <%= contacto.edad %></li><br>
+            <li>Teléfono <%= contacto.telefono %></li><br>
+            <li>Correo: <%= contacto.correo %></li><br>
+            <li>Cumpleaños: <%= contacto.birthday %></li><br>
+            <br>
+        <% }); %>
     </div>
 <%- include("footer", {}) %>
