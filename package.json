@@ -1,0 +1,16 @@
+{
+  "name": "practicando",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./bin/www.js"
+  },
+  "dependencies": {
+    "debug": "^4.4.3",
+    "dotenv": "^17.2.3",
+    "ejs": "^3.1.9",
+    "express": "^5.1.0",
+    "http-errors": "^2.0.0"
+  }
+}
