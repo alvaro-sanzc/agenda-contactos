@@ -11,13 +11,13 @@ app.use(express.static(path.join(__dirname, 'public'))); // Formato de las vista
 
 
 // Web pero con rutas
-app.locals.title = "Tienda de muebles"
+app.locals.title = "Agenda de Contactos"
 
 var indexRouter = require('./routes/index');
 app.use('/', indexRouter);
 
-var tienda = require('./routes/tienda');
-app.use('/tienda', tienda);
+var tienda = require('./routes/contactos');
+app.use('/contactos', tienda);
 
 // Web pero sin rutas
 
