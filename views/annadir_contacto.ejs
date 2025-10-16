@@ -1,0 +1,24 @@
+<%- include("header", {}) %>
+    <h1>Página para añadir el contacto</h1>
+    <form action="/contactos" method="post">
+        <ul>
+            <li>
+                <label for="name">Nombre:</label>
+                <input type="text" id="name" name="user_name" />
+            </li>
+            <li>
+                <label for="edad">Edad:</label>
+                <input type="number" id="name" name="user_name" />
+            </li>
+            <li>
+                <label for="mail">Correo electrónico:</label>
+                <input type="email" id="mail" name="user_mail" />
+            </li>
+            <li>
+                <label for="birthday">Cumpleaños:</label>
+                <input id="birthday" name="birthday"/>
+            </li>
+            <input type="submit">
+        </ul>
+    </form>
+<%- include("footer", {}) %>

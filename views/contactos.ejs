@@ -1,6 +1,6 @@
 <%- include("header", {}) %>
     <div class="container">
-        <h1>Aquí están los contactos disponibles</h1>
+        <h1>Aquí están los contactos disponibles: <% ejs_contacts.forEach(function(nombres) { %>    <%= nombres.nombre %> -     <% }); %></h1>
         <% ejs_contacts.forEach(function(contacto) { %>
             <h2> <%= contacto.nombre %></h2>
             <li>Edad: <%= contacto.edad %></li><br>

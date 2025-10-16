@@ -16,9 +16,11 @@ app.locals.title = "Agenda de Contactos"
 var indexRouter = require('./routes/index');
 app.use('/', indexRouter);
 
-var tienda = require('./routes/contactos');
-app.use('/contactos', tienda);
+var contactos = require('./routes/contactos');
+app.use('/contactos', contactos);
 
+var annadir_contactos = require('./routes/annadir_contacto')
+app.use('/annadir_contacto', annadir_contactos)
 // Web pero sin rutas
 
 // error handler

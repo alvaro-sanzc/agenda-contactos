@@ -1,5 +1,5 @@
 
-ul {
+#menu {
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -8,12 +8,9 @@ ul {
   display: flex;
 }
 
-li {
-  float: left;
-  border-right:1px solid #bbb;
-}
 
-li:last-child {
+
+li:last-child{
   border-right: none;
 }
 
@@ -26,7 +23,7 @@ li a, .menu_title {
   font-size: 150%;
 }
 
-li a:hover:not(.active) {
+li a:hover:not(.active), menu {
   background-color: #111;
 }
 
