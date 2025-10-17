@@ -8,7 +8,8 @@ const app = express();
 app.set('views', path.join(__dirname, 'views')); // Las vistas están en views
 app.set('view engine', 'ejs'); // Las vistas tienen el formato ejs
 app.use(express.static(path.join(__dirname, 'public'))); // Formato de las vistas
-
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 // Web pero con rutas
 app.locals.title = "Agenda de Contactos"

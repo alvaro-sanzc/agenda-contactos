@@ -1,13 +1,32 @@
 <%- include("header", {}) %>
-    <div class="container">
-        <h1>Aquí están los contactos disponibles: <% ejs_contacts.forEach(function(nombres) { %>    <%= nombres.nombre %> -     <% }); %></h1>
-        <% ejs_contacts.forEach(function(contacto) { %>
-            <h2> <%= contacto.nombre %></h2>
-            <li>Edad: <%= contacto.edad %></li><br>
-            <li>Teléfono <%= contacto.telefono %></li><br>
-            <li>Correo: <%= contacto.correo %></li><br>
-            <li>Cumpleaños: <%= contacto.birthday %></li><br>
-            <br>
-        <% }); %>
-    </div>
+<div class="container">
+    <h1>Aquí están los contactos disponibles:
+    <% ejs_contacts.forEach(function(nombres) { %>
+        <%= nombres.nombre %> -
+    <% }); %>
+    </h1>
+
+    <% ejs_contacts.forEach(function(contacto) { %>
+        <h2><%= contacto.nombre %></h2>
+        <li>Edad: <%= contacto.edad %></li><br>
+        <li>Teléfono: <%= contacto.telefono %></li><br>
+        <li>Correo: <%= contacto.correo %></li><br>
+        <li>Cumpleaños: <%= contacto.birthday %></li><br>
+        <br>
+    <% }); %>
+
+    <% if (nuevo_contacto && Object.keys(nuevo_contacto).length) { %> 
+        <h1>Nuevos Contactos añadidos: </h1>
+    <% } else { %>
+    <% } %>
+
+    <% if (nuevo_contacto && Object.keys(nuevo_contacto).length) { %>
+        <h2><%= nuevo_contacto.user_name %></h2>
+        <li>Edad: <%= nuevo_contacto.user_age %></li><br>
+        <li>Teléfono: <%= nuevo_contacto.user_phone %></li><br>
+        <li>Correo: <%= nuevo_contacto.user_email %></li><br>
+        <li>Cumpleaños: <%= nuevo_contacto.user_birthday %></li><br>
+    <% } else { %>
+    <% } %>
+</div>
 <%- include("footer", {}) %>
