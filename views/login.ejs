@@ -1,0 +1,16 @@
+<%- include("header", {}) %>
+    <h1>Página para añadir el contacto</h1>
+    <form action="/" method="post">
+        <ul>
+            <li>
+                <label for="user_username">Usuario:</label>
+                <input type="text" id="username" name="user_username" required/>
+            </li>
+            <li>
+                <label for="user_password">Contraseña:</label>
+                <input type="password" id="age" name="user_password" required/>
+            </li>
+            <input type="submit">
+        </ul>
+    </form>
+<%- include("footer", {}) %>

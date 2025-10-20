@@ -14,6 +14,9 @@ app.use(express.json());
 // Web pero con rutas
 app.locals.title = "Agenda de Contactos"
 
+var login = require('./routes/login');
+app.use('/login', login)
+
 var indexRouter = require('./routes/index');
 app.use('/', indexRouter);
 
