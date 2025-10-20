@@ -1,3 +1,13 @@
+html, body { 
+  height: 100%; 
+  margin: 0; 
+}
+
+.contactos{
+  max-height: 70vh;  
+  overflow-y: auto; 
+  padding-right: .5rem; 
+}
 
 #menu {
   list-style-type: none;
