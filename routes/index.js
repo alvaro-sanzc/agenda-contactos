@@ -2,19 +2,23 @@ const express = require('express');
 const router = express.Router();
 const database = require('../database/models/contacts.model')
 
-/* GET home page. */
+
 router.get('/', function(req, res) {
-  res.render('index');
+  if(req.session.user != undefined){
+    res.render('index', {nombre_usuario_registrado: req.session.user.user_username});
+  } else {
+    res.render('index', {nombre_usuario_registrado: null});
+  }
 });
 
-
-router.post('/', function(req, res, next){
-  const isLoginRight = database.login(req.body.user_username, req.body.user_password);
-  if(isLoginRight == true){
-    res.render('index');
+router.post('/', (req, res) => {
+  const { user_username, user_password } = req.body;
+  if (database.login(user_username,user_password)) {
+    req.session.user = { user_username }; // ← guardas el usuario
+    res.redirect('/');
   } else {
-    res.render('login')
+    res.send('Credenciales incorrectas');
   }
-})
+});
 
 module.exports = router;
