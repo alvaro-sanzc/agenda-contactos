@@ -27,7 +27,10 @@ app.use(express.urlencoded({ extended: true }));
 app.locals.title = "Agenda de Contactos"
 
 const login = require('./routes/login');
-app.use('/login', login)
+app.use('/login', login);
+
+const registrarse = require('./routes/registrarse');
+app.use('/registrarse', registrarse);
 
 const indexRouter = require('./routes/index');
 app.use('/', indexRouter);

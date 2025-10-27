@@ -1,6 +1,6 @@
 <%- include("header", {}) %>
-    <h1>Página para iniciar sesión</h1>
-    <form action="/login" method="post">
+    <h1>Página para Registrarse</h1>
+    <form action="/registrarse" method="post">
         <ul>
             <li>
                 <label for="username">Usuario:</label>
@@ -16,8 +16,4 @@
     <% if (mensaje) { %>
         <p><%= mensaje %></p>
     <% } %>
-    <a href="/registrarse">
-        <button>Registrarse</button>
-    </a>
-
 <%- include("footer", {}) %>

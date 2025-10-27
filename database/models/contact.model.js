@@ -5,22 +5,25 @@ contacts.data = {};
 contacts.loginUsers = {};
 
 contacts.login = function(username, password){
-    if(password == contacts.loginUsers[username].password){
-        return true;
-    }
+    if (contacts.loginUsers[username]){
+        if(password == contacts.loginUsers[username].password){
+            return true;
+        } else { return "Contraseña Incorrecta" }
+    } else { return "Usuario No Existe"}
 }
 
 contacts.register = function(username, password){
     if(contacts.data.hasOwnProperty(username)){
-        throw new Error(`Ya existe el usuario ${username}.`);
+        return `Ya existe el usuario ${username}.`;
     } else {
         contacts.loginUsers[username] = {username, password};
+        return true;
     }
 }
 
 contacts.addContacts = function(info) {
     const usuario = info.nombre || info.user_name;
-    
+
     contacts.data[usuario] = {
         nombre: info.nombre || info.user_name,
         edad: info.edad || info.user_age,
