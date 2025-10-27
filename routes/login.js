@@ -10,7 +10,7 @@ router.post('/', (req, res) => {
 const { username, user_password } = req.body;
   const login = database.login(username, user_password);
   if (login == true) {
-    req.session.user = { username }; // Añado username a req.session
+    req.session.user = {username}; // Añado username a req.session
     res.redirect('/');
   } else {
     mensaje = login;

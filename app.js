@@ -32,6 +32,9 @@ app.use('/login', login);
 const registrarse = require('./routes/registrarse');
 app.use('/registrarse', registrarse);
 
+const logout = require('./routes/logout.js');
+app.use('/logout', logout);
+
 const indexRouter = require('./routes/index');
 app.use('/', indexRouter);
 
