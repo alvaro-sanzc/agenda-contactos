@@ -1,8 +1,8 @@
 // Dependencias
 const createError = require('http-errors'); // Para mostrar errores
-const express = require('express');
+const express = require('express'); //Ayuda para GET, POST, etc. Peticiones HTTP
 const path = require('path');
-const session = require('express-session');
+const session = require('express-session'); // Para almanecar los datos de la sesión
 
 // Configuración de la web
 const app = express();
@@ -12,13 +12,12 @@ app.use(express.static(path.join(__dirname, 'public'))); // Formato de las vista
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// Configura el middleware de sesión
+// Configura el middleware de sesión -- de express-session
 app.use(
   session({
-    secret: 'mi_clave_super_segura',   // cámbialo por algo más robusto
+    secret: 'mi_clave_segura', 
     resave: false,
-    saveUninitialized: true,
-    cookie: { maxAge: 1000 * 60 * 60 } // 1 hora
+    saveUninitialized: true
   })
 );
 app.use(express.json());
@@ -27,18 +26,18 @@ app.use(express.urlencoded({ extended: true }));
 // Web pero con rutas
 app.locals.title = "Agenda de Contactos"
 
-var login = require('./routes/login');
+const login = require('./routes/login');
 app.use('/login', login)
 
-var indexRouter = require('./routes/index');
+const indexRouter = require('./routes/index');
 app.use('/', indexRouter);
 
-var contactos = require('./routes/contactos');
+const contactos = require('./routes/contactos');
 app.use('/contactos', contactos);
 
-var annadir_contactos = require('./routes/annadir_contacto')
+const annadir_contactos = require('./routes/annadir_contacto')
 app.use('/annadir_contacto', annadir_contactos)
-// Web pero sin rutas
+
 
 // error handler
 app.use(function(err, req, res, next) {

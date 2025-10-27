@@ -2,16 +2,18 @@ const express = require('express');
 const router = express.Router();
 const database = require('../database');
 
-/* GET home page. */
 router.get('/', function(req, res) {
-  //console.log(contacts.data)
-  res.render('contactos', {ejs_contacts: contacts.data, nuevo_contacto: {}});
+  data_object = database.contacts.data; // Es un objeto
+  data_array = Object.values(data_object); // Es una aray
+  res.render('contactos', {data_array, nuevo_contacto: {}});
 });
 
 router.post('/',function(req,res,next){
-  // console.log(req.body) -> Datos del formulario
-  contacts.data.push(req.body);
-  res.render('contactos', {ejs_contacts: contacts.data, nuevo_contacto: req.body});
+  data_new_contact = req.body; // Datos del formulario
+  database.contacts.addContacts(data_new_contact); // La f() correspondiente
+
+  data_array = Object.values(database.contacts.data); // Todos los contactos
+  res.render('contactos', {data_array});
 });
 
 module.exports = router;
