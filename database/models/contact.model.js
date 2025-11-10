@@ -33,4 +33,10 @@ contacts.addContacts = function(info) {
     };
 };
 
+contacts.deleteContacts = function(info) {
+    if(contacts.data[info]){
+        delete contacts.data[info];
+    }
+}
+
 module.exports = contacts;

@@ -16,4 +16,12 @@ router.post('/',function(req,res,next){
   res.render('contactos', {data_array});
 });
 
+router.post('/eliminar/:nombre', function (req,res) {
+  nombre_eliminar = req.params.nombre;
+  database.contacts.deleteContacts(nombre_eliminar);
+  
+  data_array = Object.values(database.contacts.data); // Todos los contactos
+  res.render('contactos', {data_array});
+})
+
 module.exports = router;

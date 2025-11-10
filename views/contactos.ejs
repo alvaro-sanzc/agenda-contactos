@@ -4,10 +4,15 @@
         <h1>Aquí están los contactos disponibles:</h1>
         <% data_array.forEach(function(contacto) { %>
             <h2><%= contacto.nombre %></h2>
-            <li>Edad: <%= contacto.edad %></li><br>
-            <li>Teléfono: <%= contacto.telefono %></li><br>
-            <li>Correo: <%= contacto.correo %></li><br>
-            <li>Cumpleaños: <%= contacto.birthday %></li><br>
+            <ul>
+                <li>Edad: <%= contacto.edad %></li><br>
+                <li>Teléfono: <%= contacto.telefono %></li><br>
+                <li>Correo: <%= contacto.correo %></li><br>
+                <li>Cumpleaños: <%= contacto.birthday %></li>
+            </ul>
+            <form action="/contactos/eliminar/<%= contacto.nombre %>" method="POST" onsubmit="return confirm('¿Seguro que quieres eliminar <%= contacto.nombre %>?');">
+                <button type="submit">Eliminar</button>
+            </form>
             <br>
         <% }); %>
     </main>
