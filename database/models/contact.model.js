@@ -36,7 +36,11 @@ contacts.addContacts = function(info) {
 contacts.deleteContacts = function(info) {
     if(contacts.data[info]){
         delete contacts.data[info];
-    }
-}
+    };
+};
+
+contacts.editarContacto= function(name){
+    console.log(contacts.data[name]); // datos del contacto
+};
 
 module.exports = contacts;

@@ -1,20 +1,63 @@
 <%- include("header", {}) %>
+
 <div class="container">
     <main class="contactos">
-        <h1>Aquí están los contactos disponibles:</h1>
-        <% data_array.forEach(function(contacto) { %>
-            <h2><%= contacto.nombre %></h2>
-            <ul>
-                <li>Edad: <%= contacto.edad %></li><br>
-                <li>Teléfono: <%= contacto.telefono %></li><br>
-                <li>Correo: <%= contacto.correo %></li><br>
-                <li>Cumpleaños: <%= contacto.birthday %></li>
-            </ul>
-            <form action="/contactos/eliminar/<%= contacto.nombre %>" method="POST" onsubmit="return confirm('¿Seguro que quieres eliminar <%= contacto.nombre %>?');">
-                <button type="submit">Eliminar</button>
+
+        <% if (contactoEditar) { %>
+            <h1>Editar los datos del contacto <%= contactoEditar.nombre %></h1>
+
+            <form action="/contactos" method="POST">
+                <ul>
+                    <li>
+                        <label for="nombre">Nombre:</label>
+                        <input type="text" name="nombre" value="<%= contactoEditar.nombre %>" required/>
+                    </li>
+                    <li>
+                        <label for="edad">Edad:</label>
+                        <input type="number" name="edad" value="<%= contactoEditar.edad %>" required/>
+                    </li>
+                    <li>
+                        <label for="telefono">Teléfono:</label>
+                        <input type="text" name="telefono" value="<%= contactoEditar.telefono %>" required/>
+                    </li>
+                    <li>
+                        <label for="correo">Correo:</label>
+                        <input type="email" name="correo" value="<%= contactoEditar.correo %>" required/>
+                    </li>
+                    <li>
+                        <label for="birthday">Cumpleaños:</label>
+                        <input type="date" name="birthday" value="<%= contactoEditar.birthday %>" required/>
+                    </li>
+                </ul>
+                <button type="submit">Guardar cambios</button>
+                <a href="/contactos">Cancelar</a>
             </form>
-            <br>
-        <% }); %>
+
+        <% } else { %>
+
+            <h1>Aquí están los contactos disponibles:</h1>
+
+            <% data_array.forEach(function(contacto) { %>
+                <h2><%= contacto.nombre %></h2>
+                <ul>
+                    <li>Edad: <%= contacto.edad %></li><br>
+                    <li>Teléfono: <%= contacto.telefono %></li><br>
+                    <li>Correo: <%= contacto.correo %></li><br>
+                    <li>Cumpleaños: <%= contacto.birthday %></li>
+                </ul>
+
+                <!-- Ir al modo edición (GET) -->
+                <form action="/contactos/editar/<%= contacto.nombre %>" method="GET">
+                    <button type="submit">Editar</button>
+                </form>
+
+                <form action="/contactos/eliminar/<%= contacto.nombre %>" method="POST" onsubmit="return confirm('¿Seguro que quieres eliminar <%= contacto.nombre %>?');">
+                    <button type="submit">Eliminar</button>
+                </form>
+                <br>
+            <% }); %>
+        <% } %>
     </main>
 </div>
+
 <%- include("footer", {}) %>
