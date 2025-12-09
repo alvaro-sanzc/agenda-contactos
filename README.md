@@ -18,6 +18,6 @@ Luego abre tu navegador en `http://localhost:3002`
 - Ver la lista de contactos.
 - Chat entre 2 usuarios registrados.
 - Chat entre más de 2 usuarios registrados.
-- Rol de administrador
-- Rol de usuario
-- Rol de invitado
+- Rol de administrador que puede las funcionalidades de usuario + funciones de administrador.
+- Rol de usuario que puede las funcionalidades de invitado + hablar por chat.
+- Rol de invitado puede editar, añadir y eliminar contactos.
