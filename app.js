@@ -23,7 +23,7 @@ app.use(
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Web pero con rutas
+// Título Global
 app.locals.title = "Agenda de Contactos"
 
 const login = require('./routes/login');
@@ -41,8 +41,11 @@ app.use('/', indexRouter);
 const contactos = require('./routes/contactos');
 app.use('/contactos', contactos);
 
-const annadir_contactos = require('./routes/annadir_contacto')
-app.use('/annadir_contacto', annadir_contactos)
+const annadir_contactos = require('./routes/annadir_contacto');
+app.use('/annadir_contacto', annadir_contactos);
+
+const chat = require('./routes/chat');
+app.use('/chat', chat);
 
 
 // error handler

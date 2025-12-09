@@ -1,0 +1,79 @@
+<%- include("header", {}) %>
+
+<!-- Cargamos el archivo CSS del chat -->
+<link rel="stylesheet" href="/stylesheets/chat.css">
+
+<div id="chat-container">
+    <h2>Chat en tiempo real sin persistencia</h2>
+    <p>Conectado como: <strong><%= username %></strong></p>
+
+    <!-- Donde aparecerán los mensajes -->
+    <div id="mensajes"></div>
+
+    <!-- Formulario para enviar mensajes -->
+    <form id="form">
+        <input id="msg" autocomplete="off" placeholder="Escribe un mensaje..." />
+        <button>Enviar</button>
+    </form>
+</div>
+
+<!-- Socket.io para la conexión -->
+<script src="/socket.io/socket.io.js"></script>
+
+<script>
+    const socket = io(); // Conecta con el servidor
+    const form = document.getElementById('form');
+    const input = document.getElementById('msg');
+    const mensajes = document.getElementById('mensajes');
+
+    // Usuario actual
+    const currentUser = "<%= username %>";
+
+    // Evento al enviar formulario (mensaje)
+    form.addEventListener('submit', e => {
+        e.preventDefault(); // Evita recargar la página
+
+        const text = input.value.trim(); // Quita espacios innecesarios
+
+        if(text){
+            const msgObj = { user: currentUser, text }; // Crea un objeto con el usuario y el mensaje
+            socket.emit('chatMessage', msgObj); // Envia mensaje al servidor
+            input.value = ''; // Limpia donde se escribe el chat
+        }
+    });
+
+    // Cuando llega un mensaje desde el servidor
+    socket.on('chatMessage', msg => {
+        const isMe = msg.user === currentUser; // Determinar de que usuario es el mensaje
+        addMessage(msg.text, msg.user, isMe);
+    });
+
+    // Para mostrar el mensaje en pantalla
+    function addMessage(text, user, isMe){
+
+        // Recuadro donde va el mensaje
+        const bubble = document.createElement('div');
+        bubble.classList.add('msg', isMe ? 'msg-me' : 'msg-other');
+
+        // Nombre del usuario
+        const userLabel = document.createElement('div');
+        userLabel.classList.add('msg-user');
+        userLabel.textContent = user;
+
+        // Texto del mensaje
+        const textNode = document.createElement('div');
+        textNode.textContent = text;
+
+        // nombre y texto dentro de la burbuja
+        bubble.appendChild(userLabel);
+        bubble.appendChild(textNode);
+
+        // Mostrar en el contenedor
+        mensajes.appendChild(bubble);
+
+        // Auto-scroll hacia el último mensaje
+        mensajes.scrollTop = mensajes.scrollHeight;
+    }
+</script>
+
+<%- include("footer", {}) %>

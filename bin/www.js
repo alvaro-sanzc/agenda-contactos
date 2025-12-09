@@ -7,12 +7,43 @@ var dotenv = require('dotenv').config({ quiet: true }); // npm install dotenv y 
 var debug = require('debug')('practicando:server'); // añadir mensajes de depuración
 var app = require('../app'); // Diseño de la Web
 
+
+// Puerto
+var port = normalizePort(process.env.PORT || '3000'); // process.env.PORT == dotenv.parsed.PORT
+app.set('port', port);
+
 /**
  * Crear servidor HTTP
  */
 
 var server = http.createServer(app);
-var port = normalizePort(process.env.PORT || '3000'); // process.env.PORT == dotenv.parsed.PORT
+
+
+/**
+ *  Socket.io
+ */
+
+var { Server } = require('socket.io');
+var io = new Server(server);
+
+// Eventos de Socket.io
+io.on('connection', function (socket) {
+    console.log('Nuevo usuario conectado');
+
+    // Recibir mensaje del cliente
+    socket.on('chatMessage', function (msg) {
+        // Reenviar el mensaje a todos los clientes conectados
+        io.emit('chatMessage', msg);
+    });
+
+  socket.on('disconnect', function () {
+    console.log('Usuario desconectado');
+  });
+});
+
+/**
+ * Poner servidor a escuchar
+ */
 
 server.listen(port); // Para abrirlo
 server.on('error', onError); // PARA MOSTRAR EL ERROR
