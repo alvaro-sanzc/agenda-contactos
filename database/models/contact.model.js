@@ -43,4 +43,8 @@ contacts.editarContacto= function(name){
     // console.log(contacts.data[name]); // datos del contacto
 };
 
+contacts.obtenerUsuarios = function() {   
+    return Object.values(contacts.loginUsers); 
+};
+
 module.exports = contacts;

@@ -26,6 +26,9 @@ app.use(express.urlencoded({ extended: true }));
 // Título Global
 app.locals.title = "Agenda de Contactos"
 
+const admin = require('./routes/admin');
+app.use('/admin', admin);
+
 const login = require('./routes/login');
 app.use('/login', login);
 

@@ -11,7 +11,13 @@ const { username, user_password } = req.body;
   const login = database.login(username, user_password);
   if (login == true) {
     req.session.user = {username}; // Añado username a req.session
-    res.redirect('/');
+    //console.log(req.session.user);
+    if (req.session.user.username == "admin"){
+      //console.log("entra")
+      res.redirect('admin');
+    } else {
+      res.redirect('/');
+    }
   } else {
     mensaje = login;
     res.render('login', {mensaje});

@@ -6,11 +6,18 @@ npm install
 
 ## Uso
 npm start
-Luego abre tu navegador en `http://localhost:3000`
+Luego abre tu navegador en `http://localhost:3002`
 
 ## Funcionalidades
-- Crear contactos en una agenda.
-- Ver la lista de contactos.
 - Login de usuario.
 - Registro de usuario.
-- Cerrar sesión. 
+- Logout de usuario.
+- Crear contactos en una agenda.
+- Editar contactos en una agenda.
+- Eliminar contactos en una agenda.
+- Ver la lista de contactos.
+- Chat entre 2 usuarios registrados.
+- Chat entre más de 2 usuarios registrados.
+- Rol de administrador
+- Rol de usuario
+- Rol de invitado
