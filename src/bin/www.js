@@ -5,7 +5,7 @@
 var http = require('http'); //o import http from 'http'
 var dotenv = require('dotenv').config({ quiet: true }); // npm install dotenv y quite true para quitar --> [dotenv@17.2.3] injecting env (1) from .env -- tip: ⚙️  suppress all logs with { quiet: true }
 var debug = require('debug')('practicando:server'); // añadir mensajes de depuración
-var app = require('../../app'); // Diseño de la Web
+var app = require('../app'); // Diseño de la Web
 
 
 // Puerto
