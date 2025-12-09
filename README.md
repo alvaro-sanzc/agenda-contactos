@@ -7,6 +7,7 @@ npm install
 ## Uso
 npm start
 Luego abre tu navegador en `http://localhost:3002`
+Para más información, consulta la documentación docs/Proyecto.pdf la sección Manual de Uso
 
 ## Funcionalidades
 - Login de usuario.

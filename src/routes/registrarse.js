@@ -8,7 +8,7 @@ router.get('/', function(req,res) {
 
 router.post('/', function(req,res) {
     const {username, user_password} = req.body
-    const register = database.register(username,user_password);
+    const register = database.contacts.register(username,user_password);
     if(register == true){
         // console.log("Se ha creado el usuario ", username)
         req.session.user = { username }; // Añado username a req.session
