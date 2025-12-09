@@ -28,7 +28,7 @@ var io = new Server(server);
 
 // Eventos de Socket.io
 io.on('connection', function (socket) {
-    console.log('Nuevo usuario conectado');
+    // console.log('Nuevo usuario conectado');
 
     // Recibir mensaje del cliente
     socket.on('chatMessage', function (msg) {
@@ -37,7 +37,7 @@ io.on('connection', function (socket) {
     });
 
   socket.on('disconnect', function () {
-    console.log('Usuario desconectado');
+    // console.log('Usuario desconectado');
   });
 });
 
@@ -62,12 +62,12 @@ function normalizePort(val){
 }
 
 function onError(error) {
-    console.log(`Ha ocurrido un error al lanzar el serviodor: ${error}`);
+    // (`Ha ocurrido un error al lanzar el serviodor: ${error}`);
 }
 
 function onListening(){
     port = server.address().port;
     // Siempre registrar en consola para que el usuario vea el puerto
-    console.log(`El servidor ha arrancado en el puerto ${port} en http://localhost:${port}`);
+    // console.log(`El servidor ha arrancado en el puerto ${port} en http://localhost:${port}`);
     debug(`El servidor ha arrancado en el puerto ${port} en http://localhost:${port}`);
 }

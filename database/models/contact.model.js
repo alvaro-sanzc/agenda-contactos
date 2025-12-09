@@ -40,7 +40,7 @@ contacts.deleteContacts = function(info) {
 };
 
 contacts.editarContacto= function(name){
-    console.log(contacts.data[name]); // datos del contacto
+    // console.log(contacts.data[name]); // datos del contacto
 };
 
 module.exports = contacts;

@@ -29,7 +29,7 @@ router.post('/', function(req, res) { //POST DE editar contacto
   if (contacto_editar) {
     contacto_editar = decodeURIComponent(contacto_editar);
   };
-  console.log(contacto_editar);
+  // console.log(contacto_editar);
   database.contacts.deleteContacts(contacto_editar);
 
   // Añadir el contacto
