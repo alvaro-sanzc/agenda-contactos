@@ -8,7 +8,7 @@ const session = require('express-session'); // Para almanecar los datos de la se
 const app = express();
 app.set('views', path.join(__dirname, 'views')); // Las vistas están en views
 app.set('view engine', 'ejs'); // Las vistas tienen el formato ejs
-app.use(express.static(path.join(__dirname, 'public'))); // Formato de las vistas
+app.use(express.static(path.join(__dirname, 'public'))); // Le dice al servidor que public es una carpeta de archivos estáticos
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
@@ -20,8 +20,7 @@ app.use(
     saveUninitialized: true
   })
 );
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+
 
 // Título Global
 app.locals.title = "Agenda de Contactos"
@@ -40,6 +39,10 @@ app.use('/logout', logout);
 
 const indexRouter = require('./routes/index');
 app.use('/', indexRouter);
+
+app.get('/estatica', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public/html', 'estatica.html'));
+});
 
 const contactos = require('./routes/contactos.js');
 app.use('/contactos', contactos);
