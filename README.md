@@ -96,7 +96,7 @@ npm start
 ## 📂 Estructura del proyecto
 
 ```
-Agenda-Contactos/
+agenda-contactos/
 ├── docs/
 │   ├── img/                 # Carpeta que contiene las imágenes utilizadas en la documentación
 │   └── Documentación.pdf    # Archivo PDF con la documentación del proyecto
