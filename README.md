@@ -16,7 +16,7 @@
 
 ## 📖 Descripción
 
-Proyecto academico que consiste en una **aplicación web** desarrollada con **Node.js**, **Express** y **EJS** que permite gestionar una agenda de contactos.  
+**Aplicación web** desarrollada con **Node.js**, **Express** y **EJS** que permite gestionar una agenda de contactos.  
 Este proyecto fue creado con fines educativos con el objetivo de aprender a utilizar **Node.js**, comprender cómo funciona su entorno de desarrollo y practicar la creación de aplicaciones web en el lado del servidor.
 
 ---
