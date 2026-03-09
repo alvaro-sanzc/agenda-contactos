@@ -69,7 +69,11 @@ cd agenda-contactos/src
 npm install
 ```
 
-3. Crear un archivo `.env` en la raíz del proyecto con las siguientes variables de entorno, puede cambiar el valor de `PORT` si lo desea:
+3. OPCIONAL:
+   Por defecto la aplicacion web se iniciará en el puerto **3000**. Si se quiere cambiar el puerto crear un archivo `.env` en la
+   raíz de la carpeta `src` con las siguientes variables de entorno:
+   
+   NOTA: Cambiar el `3000` por el puerto que se desee utilizar.
 
 ```env
 PORT=3000
@@ -91,26 +95,28 @@ npm start
 
 ## 📂 Estructura del proyecto
 
+```
 Agenda-Contactos/
 ├── docs/
-│   ├── img/  -> Carpeta que contiene las imágenes utilizadas en la documentación.
-│   └── Documentación.pdf -> Archivo PDF que contiene la documentación del proyecto.
+│   ├── img/                 # Carpeta que contiene las imágenes utilizadas en la documentación
+│   └── Documentación.pdf    # Archivo PDF con la documentación del proyecto
 ├── src/
 │   ├── bin/
-│   │   └── www -> Archivo de configuración para iniciar el servidor.
+│   │   └── www              # Archivo de configuración para iniciar el servidor
 │   ├── database/
-│   │   ├── models/ -> Carpeta que contiene los modelos de la base de datos.
-│   │   └── index.js -> Contenido de la BBDD.
-│   ├── middleware/ -> Carpeta que contiene los middlewares de la aplicación.
-│   ├── public/ -> Carpeta que contiene los archivos estáticos (CSS, imágenes, etc.).
-│   ├── routes/ -> Carpeta que contiene las rutas de la aplicación.
-│   ├── views/ -> Carpeta que contiene las vistas de la aplicación.
-│   ├── app.js -> Archivo principal de la aplicación.
-│   └── package.json -> Archivo de configuración del proyecto.
-├── .env -> Archivo de configuración de variables de entorno.
-├── .gitignore -> Archivo que especifica los archivos y carpetas que Git debe ignorar.
-├── LICENSE -> Archivo de licencia del proyecto.
-└── README.md -> Archivo de documentación del proyecto.
+│   │   ├── models/          # Modelos de la base de datos
+│   │   └── index.js         # Contenido de la BBDD
+│   ├── middleware/          # Middlewares de la aplicación
+│   ├── public/              # Archivos estáticos (CSS, imágenes, etc.)
+│   ├── routes/              # Rutas de la aplicación
+│   ├── views/               # Vistas de la aplicación (EJS)
+│   ├── app.js               # Archivo principal de la aplicación
+│   └── package.json         # Configuración del proyecto
+├── .env                     # Variables de entorno
+├── .gitignore               # Archivos ignorados por Git
+├── LICENSE                  # Licencia del proyecto
+└── README.md                # Documentación del proyecto
+```
 
 ---
 
